@@ -22,3 +22,16 @@ and does the following:
 import sys
 import calendar
 from datetime import datetime
+
+args = len(sys.argv[1:])
+month = datetime.today().month
+year = datetime.today().year
+
+if args == 0:
+  print(calendar.TextCalendar().formatmonth(year, month))
+elif args == 1:
+  print(calendar.TextCalendar().formatmonth(year, int(sys.argv[1])))
+elif args == 2:
+  print(calendar.TextCalendar().formatmonth(int(sys.argv[2]), int(sys.argv[1])))
+else:
+  print("please format your arguments like this: 10 2020 (for October of 2020)")
